@@ -1,20 +1,22 @@
 # Docker image name
 DOCKER_USERNAME=issgupat
 DOCKER_IMAGE_NAME=fileagent-docker-sand5g
+TAG=latest
 
 # ╔════════════════════════════════════════╗
 # ║ Docker Image Build, Delete, and Upload ║
 # ╚════════════════════════════════════════╝
 
 docker-build:
-	@docker build -t $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) .
-	@echo "Docker image $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) built successfully."
+	@docker build -t $(DOCKER_IMAGE_NAME) .
+	@echo "Docker image $(DOCKER_IMAGE_NAME) built successfully."
 
 docker-delete:
-	@docker rmi -f $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME)
-	@echo "Docker image $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) deleted successfully."
+	@docker rmi -f $(DOCKER_IMAGE_NAME)
+	@echo "Docker image $(DOCKER_IMAGE_NAME) deleted successfully."
 
 docker-push:
+	@docker tag $(DOCKER_IMAGE_NAME) $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME):$(TAG)
 	@docker push $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME)
 	@echo "Docker image $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) pushed to Docker Hub successfully."
 

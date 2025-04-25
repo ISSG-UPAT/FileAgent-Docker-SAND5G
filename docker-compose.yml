@@ -1,8 +1,9 @@
 services:
   fileagent:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    image: issgupat/fileagent-docker-sand5g
     environment:
       - PORT=8000
       - HOST="0.0.0.0"
