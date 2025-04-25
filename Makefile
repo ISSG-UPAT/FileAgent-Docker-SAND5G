@@ -7,16 +7,16 @@ DOCKER_IMAGE_NAME=fileagent-docker-sand5g
 # ╚════════════════════════════════════════╝
 
 docker-build:
-	@docker build -t $(DOCKER_IMAGE_NAME) .
-	@echo "Docker image $(DOCKER_IMAGE_NAME) built successfully."
+	@docker build -t $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) .
+	@echo "Docker image $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) built successfully."
 
 docker-delete:
-	@docker rmi -f $(DOCKER_IMAGE_NAME)
-	@echo "Docker image $(DOCKER_IMAGE_NAME) deleted successfully."
+	@docker rmi -f $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME)
+	@echo "Docker image $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) deleted successfully."
 
 docker-push:
 	@docker push $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME)
-	@echo "Docker image $(DOCKER_IMAGE_NAME) pushed to Docker Hub successfully."
+	@echo "Docker image $(DOCKER_USERNAME)/$(DOCKER_IMAGE_NAME) pushed to Docker Hub successfully."
 
 # ╔════════════════╗
 # ║ Help Function  ║
