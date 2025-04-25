@@ -21,4 +21,5 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: ./snort/volumes/custom
+      # device: ./snort/volumes/custom
+      device: .
