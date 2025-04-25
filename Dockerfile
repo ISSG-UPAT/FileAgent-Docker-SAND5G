@@ -5,10 +5,11 @@ FROM python:3.13-slim
 WORKDIR /app
 
 COPY requirements.txt requirements.txt
+COPY entrypoint.sh . 
 
 # Install the dependencies
-RUN pip install --no-cache-dir fileagent
-
+RUN pip install --no-cache-dir -r requirements.txt
+RUN chmod +x entrypoint.sh
 
 ARG PORT
 ENV PORT=${PORT}
@@ -25,4 +26,6 @@ EXPOSE ${PORT}
 
 # Command to run the FastAPI application
 # CMD ["python", "src/agent.py", "--host", "${HOST}", "--port", "${PORT}"]
-CMD ["sh", "-c", "/app/entrypoint.sh"]
+# CMD ["sh", "-c", "/app/entrypoint.sh"]
+# CMD ["tail","-f","/dev/null"]
+CMD ["/app/entrypoint.sh"]
