@@ -16,6 +16,45 @@ https://sand5g-project.eu
 
 [FileAgent python package](https://test.pypi.org/project/fileagent/)
 
+## Functionality
+
+### Variables
+
+| Variable  | Required | Default Values | Description                                  |
+| --------- | -------- | -------------- | -------------------------------------------- |
+| PORT      | OPTIONAL | 8000           | The port on which the FileAgent will run.    |
+| HOST      | OPTIONAL | "0.0.0.0"      | The host on which the FileAgent will run.    |
+| DIRECTORY | OPTIONAL | <>             | The directory to be monitored.               |
+|           |          |                | Defaults to the parent directory of the file |
+| FILE      | YES      |                | The file to be monitored.                    |
+
+### Docker compose
+
+```yaml
+services:
+  fileagent:
+    image: issgupat/fileagent-docker-sand5g:latest
+    environment:
+      - PORT=8000
+      - HOST="0.0.0.0"
+      - FILE=<name of your file>
+      - DIRECTORY=/app/custom
+    hostname: fileagent
+    network_mode: "host"
+    ports:
+      - "8000:8000"
+    volumes:
+      - custom_data:/app/custom
+
+volumes:
+  custom_data:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /path/to/your/custom
+```
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.

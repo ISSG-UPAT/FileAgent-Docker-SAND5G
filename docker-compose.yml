@@ -1,9 +1,6 @@
 services:
   fileagent:
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    image: issgupat/fileagent-docker-sand5g
+    image: issgupat/fileagent-docker-sand5g:latest
     environment:
       - PORT=8000
       - HOST="0.0.0.0"
@@ -22,5 +19,4 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      # device: ./snort/volumes/custom
-      device: .
+      device: /path/to/your/custom
