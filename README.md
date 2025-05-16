@@ -14,7 +14,8 @@ https://sand5g-project.eu
 
 ## Overview
 
-[FileAgent python package](https://test.pypi.org/project/fileagent/)
+[FileAgent python package pypi repository](https://pypi.org/project/fileagent/)
+[FileAgent python package github repository](https://github.com/ISSG-UPAT/FileAgent-SAND5G)
 
 ## Functionality
 
