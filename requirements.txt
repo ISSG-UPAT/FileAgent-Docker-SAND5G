@@ -1,1 +1,1 @@
-fileagent>=0.2.5
+fileagent>=0.2.6
